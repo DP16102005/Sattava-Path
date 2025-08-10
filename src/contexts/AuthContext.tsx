@@ -4,7 +4,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  role: 'user' | 'admin';
+  role: 'user' | 'admin' | 'developer';
   avatar?: string;
 }
 
@@ -46,11 +46,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     // Demo credentials
-    if (email === 'seeker@sattvapath.com' && password === 'seeker123') {
+    if (email === 'lead@sattvapath.com' && password === 'leading123') {
       const seekerUser: User = {
         id: '1',
-        name: 'Arjun Sharma',
-        email: 'seeker@sattvapath.com',
+        name: 'Martand Gajjar',
+        email: 'lead@sattvapath.com',
         role: 'admin',
         avatar: '🧘‍♂️'
       };
@@ -58,13 +58,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       localStorage.setItem('sattvapath_user', JSON.stringify(seekerUser));
       setIsLoading(false);
       return true;
-    } else if (email === 'student@sattvapath.com' && password === 'student123') {
+    } else if (email === 'developer@sattvapath.com' && password === 'developer123') {
       const studentUser: User = {
         id: '2',
-        name: 'Priya Patel',
-        email: 'student@sattvapath.com',
-        role: 'user',
-        avatar: '🌸'
+        name: 'Devarsh Panchal',
+        email: 'developer@sattvapath.com',
+        role: 'developer',
+        avatar: '🕉️'
       };
       setUser(studentUser);
       localStorage.setItem('sattvapath_user', JSON.stringify(studentUser));
@@ -84,8 +84,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     const googleUser: User = {
       id: '3',
-      name: 'Rohit Kumar',
-      email: 'user@gmail.com',
+      name: 'Yash Oza',
+      email: 'yashoza@gmail.com',
       role: 'user',
       avatar: '🕉️'
     };
